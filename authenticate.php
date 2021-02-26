@@ -7,7 +7,7 @@
 	# Create connection to Heroku Postgres
 	$conn_string = "host=$host_heroku port=5432 dbname=$db_heroku user=$user_heroku password=$pw_heroku";
 	$pg_heroku = pg_connect($conn_string);
-	
+	echo '<p>Login Successful</p>'; 
 	if (!$pg_heroku)
 	{
 		die('Error: Could not connect: ' . pg_last_error());
