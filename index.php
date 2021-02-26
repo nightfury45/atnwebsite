@@ -7,7 +7,6 @@ $userinfo = array(
                 $role1=>'123',
                 $role2=>'123'
                 );
-
 if(isset($_GET['logout'])) {
     $_SESSION['username'] = '';
     header('Location:  ' . $_SERVER['PHP_SELF']);
@@ -28,12 +27,13 @@ if(isset($_POST['username'])) {
         <title>Login</title>
     </head>
     <body>
-        <?php if($_SESSION['username']): ?>
-			if('username' == $role1)
+        <?php
+			$username = $_SESSION['username'];
+			if($username == $role1)
 				header("location:branchmanager.php");
-			if('username' == $role2)
+			if($username == $role2)
 				header("location:director.php");
-        <?php endif; ?>
+        ?>
         <form name="login" action="" method="post">
             Username:  <input type="text" name="username" value="" /><br />
             Password:  <input type="password" name="password" value="" /><br />
