@@ -7,7 +7,6 @@
 	# Create connection to Heroku Postgres
 	$conn_string = "host=$host_heroku port=5432 dbname=$db_heroku user=$user_heroku password=$pw_heroku";
 	$pg_heroku = pg_connect($conn_string);
-	echo '<p>Login Successful</p>'; 
 	if (!$pg_heroku)
 	{
 		die('Error: Could not connect: ' . pg_last_error());
@@ -32,6 +31,7 @@
 				// Note: remember to use password_hash in your registration file to store the hashed passwords.
 				if (password_verify($_POST['password'], $password)) 
 				{
+					echo '<p>Login Successful</p>'; 
 					// Verification success! User has logged-in!
 					// Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
 					session_regenerate_id();
