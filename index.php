@@ -1,9 +1,11 @@
 <?php
 session_start();
+$role1 = "branchmanager";
+$role2 = "director";
 
 $userinfo = array(
-                'user1'=>'password1',
-                'user2'=>'password2'
+                $role1=>'123',
+                $role2=>'123'
                 );
 
 if(isset($_GET['logout'])) {
@@ -27,8 +29,10 @@ if(isset($_POST['username'])) {
     </head>
     <body>
         <?php if($_SESSION['username']): ?>
-            <p>You are logged in as <?=$_SESSION['username']?></p>
-            <p><a href="?logout=1">Logout</a></p>
+			if('username' == $role1)
+				header("location:branchmanager.php");
+			if('username' == $role2)
+				header("location:director.php");
         <?php endif; ?>
         <form name="login" action="" method="post">
             Username:  <input type="text" name="username" value="" /><br />
