@@ -1,5 +1,5 @@
 <?php 
-	echo '<p>TEST HEROKU POSTGRESQL DATABASE </p>'; 
+	echo '<p>Login Successful</p>'; 
 	# Heroku credential 
 	$host_heroku = "ec2-18-206-84-251.compute-1.amazonaws.com";
 	$db_heroku = "d8k42dnhtd0o9i";
@@ -25,27 +25,33 @@
 		$stmt->execute();
 		// Store the result so we can check if the account exists in the database.
 		$stmt->store_result();
-		if ($stmt->num_rows > 0) {
-	$stmt->bind_result($id, $password);
-	$stmt->fetch();
-	// Account exists, now we verify the password.
-	// Note: remember to use password_hash in your registration file to store the hashed passwords.
-	if (password_verify($_POST['password'], $password)) {
-		// Verification success! User has logged-in!
-		// Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
-		session_regenerate_id();
-		$_SESSION['loggedin'] = TRUE;
-		$_SESSION['name'] = $_POST['username'];
-		$_SESSION['id'] = $id;
-		echo 'Welcome ' . $_SESSION['name'] . '!';
-	} else {
-		// Incorrect password
-		echo 'Incorrect username and/or password!';
-	}
-} else {
-	// Incorrect username
-	echo 'Incorrect username and/or password!';
-}
+		if ($stmt->num_rows > 0) 
+		{
+				$stmt->bind_result($id, $password);
+				$stmt->fetch();
+				// Account exists, now we verify the password.
+				// Note: remember to use password_hash in your registration file to store the hashed passwords.
+				if (password_verify($_POST['password'], $password)) 
+				{
+					// Verification success! User has logged-in!
+					// Create sessions, so we know the user is logged in, they basically act like cookies but remember the data on the server.
+					session_regenerate_id();
+					$_SESSION['loggedin'] = TRUE;
+					$_SESSION['name'] = $_POST['username'];
+					$_SESSION['id'] = $id;
+					header('Location: home.php');
+				} 
+				else 
+				{
+					// Incorrect password
+					echo 'Incorrect username and/or password!';
+				}
+		} 
+		else 
+		{
+			// Incorrect username
+			echo 'Incorrect username and/or password!';
+		}
 		$stmt->close();
-	}
+	}	
 ?>
