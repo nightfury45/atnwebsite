@@ -17,12 +17,6 @@
 		{
 			die('Error: Could not connect: ' . pg_last_error());
 		}
-	?>
-<div class="container-fluid bg-3 text-center">    
-  <h3>Stock Create, Read, Edit and Delete mode</h3>
-  <a href="insert.php" class="btn btn-primary pull-right" style='margin-top:-30px'><span class="glyphicon glyphicon-plus-sign"></span> Add Record</a>
-  <br>
-	<?php
   		# Get data by query
 		$query = 'select * from Stock';
 		$result = pg_query($pg_heroku, $query);
@@ -56,6 +50,7 @@
 		pg_free_result($result);
 		echo '</table></body></html>';
 	?>
+	<a href="index.php">Logout</a>
 </div>  	
 </body>
 <html>
