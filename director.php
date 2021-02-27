@@ -1,10 +1,9 @@
 <html>
 <head>
-<p> Director <P>
 </head>
 <body>
 	<?php 
-		echo '<p>TEST HEROKU POSTGRESQL DATABASE </p>'; 
+		echo '<p>Stock View only mode</p>'; 
 		# Heroku credential 
 		$host_heroku = "ec2-52-70-67-123.compute-1.amazonaws.com";
 		$db_heroku = "d18ccjsmc2b6fp";
