@@ -32,10 +32,10 @@
     <thead>
       <tr class="active">
             <th>Sr. No.</th>  
-            <th >Name</th>       
-            <th>Email</th>
-            <th>Mobile Number</th>
-            <th>Address</th>
+            <th >ID</th>       
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
             <th>Action</th>
       </tr>
     </thead>
@@ -43,10 +43,10 @@
     <?php while($user = pg_fetch_object($users)): ?>   
       <tr align="left">
         <td ><?=$sn++?></td>
-        <td><?=$user->name?></td>
-        <td><?=$user->email?></td>
-        <td><?=$user->mobile_no?></td>
-        <td><?=$user->address?></td>
+        <td><?=$user->productid?></td>
+        <td><?=$user->productname?></td>
+        <td><?=$user->productprice?></td>
+        <td><?=$user->productamount?></td>
         <td>
             <form method="post">
                 <input type="submit" class="btn btn-success" name= "update" value="Update">   
