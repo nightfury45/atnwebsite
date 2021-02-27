@@ -50,6 +50,12 @@
 		pg_free_result($result);
 		echo '</table></body></html>';
 	?>
+	<form name="input" action="" method="get">
+	Product Name:  <input type="text" name="name" value="" /><br />
+	Product Price:  <input type="number" name="price" value="" /><br />
+	Product Amount: <input type="number" name="amount" value="" /><br />
+	<input type="submit" name="submit" value="Submit" />
+	</form>
 	<a href="logout.php">Logout</a>
 </div>  	
 </body>
