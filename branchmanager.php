@@ -50,7 +50,7 @@
 		pg_free_result($result);
 		echo '</table></body></html>';
 	?>
-	<a href="index.php">Logout</a>
+	<a href="logout.php">Logout</a>
 </div>  	
 </body>
 <html>

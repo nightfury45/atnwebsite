@@ -51,6 +51,6 @@
 		echo '</table></body></html>';
 		
 	?> 
-		<a href="index.php">Logout</a>
+		<a href="logout.php">Logout</a>
 </body>
 <html>
