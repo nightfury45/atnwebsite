@@ -4,7 +4,6 @@
 </head>
 <body>
 	<?php 
-		echo '<p>Stock Create, Read, Edit and Delete mode</p>'; 
 		# Heroku credential 
 		$host_heroku = "ec2-52-70-67-123.compute-1.amazonaws.com";
 		$db_heroku = "d18ccjsmc2b6fp";
@@ -20,47 +19,43 @@
 		}
 	?>
 <div class="container-fluid bg-3 text-center">    
-  <h3>CRUD Example Using PHP OOPS And PostgreSQL</h3>
+  <h3>Stock Create, Read, Edit and Delete mode</h3>
   <a href="insert.php" class="btn btn-primary pull-right" style='margin-top:-30px'><span class="glyphicon glyphicon-plus-sign"></span> Add Record</a>
   <br>
-  
-  <div class="panel panel-primary">
-        <div class="panel-heading">CRUD Example Using PHP OOPS And PostgreSQL</div>
-             
-            <div class="panel-body">
-            <table class="table table-bordered table-striped">
-    <thead>
-      <tr class="active">
-            <th>Sr. No.</th>  
-            <th >ID</th>       
-            <th>Name</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-    <?php while($user = pg_fetch_object($users)): ?>   
-      <tr align="left">
-        <td ><?=$sn++?></td>
-        <td><?=$user->productid?></td>
-        <td><?=$user->productname?></td>
-        <td><?=$user->productprice?></td>
-        <td><?=$user->productamount?></td>
-        <td>
-            <form method="post">
-                <input type="submit" class="btn btn-success" name= "update" value="Update">   
-                <input type="submit" onClick="return confirm('Please confirm deletion');" class="btn btn-danger" name= "delete" value="Delete">
-                <input type="hidden" value="<?=$user->id?>" name="id">
-            </form>
-        </td>
-      </tr>
-    <?php endwhile; ?>   
-    </tbody>
-  </table>
-</div>
- 
-</div>
+	<?php
+  		# Get data by query
+		$query = 'select * from Stock';
+		$result = pg_query($pg_heroku, $query);
+		# Display data column by column
+		$i = 0;
+		echo '<html><body><table><tr>';
+		while ($i < pg_num_fields($result))
+		{
+			$fieldName = pg_field_name($result, $i);
+			echo '<td>' . $fieldName . '</td>';
+			$i = $i + 1;
+		}
+		echo '</tr>';
+		# Display data row by row
+		$i = 0;
+		while ($row = pg_fetch_row($result)) 
+		{
+			echo '<tr>';
+			$count = count($row);
+			$y = 0;
+			while ($y < $count)
+			{
+				$c_row = current($row);
+				echo '<td>' . $c_row . '</td>';
+				next($row);
+				$y = $y + 1;
+			}
+			echo '</tr>';
+			$i = $i + 1;
+		}
+		pg_free_result($result);
+		echo '</table></body></html>';
+	?>
 </div>  	
 </body>
 <html>
