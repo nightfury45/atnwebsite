@@ -77,14 +77,6 @@
 			}
 		}  
 	?>
-	<?php 
-		if(isset($_GET['update'])){
-		$sql = "update stock set productname='$_GET[name]' , productprice='$_GET[price]', productamount='$_GET[amount]' where productid=$_GET[id]";
-		$result = pg_query($pg_heroku, $sql);
-		if($result){
-		  echo "Updated successfully.";
-		}
-	?>
 	<a href="logout.php">Logout</a>
 </div>  	
 </body>
