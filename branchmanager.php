@@ -65,6 +65,7 @@
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			echo "Record saved";
+			parent.window.location.reload();
 			}
 		}  
 		if(isset($_GET['delete'])){
@@ -72,6 +73,7 @@
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			echo "Row deleted";
+			parent.window.location.reload();
 			}
 		} 
 		if(isset($_GET['update'])){
@@ -79,6 +81,7 @@
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			  echo "Updated successfully.";
+			  parent.window.location.reload();
 			}
 		}			
 	?>
