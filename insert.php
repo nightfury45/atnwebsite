@@ -20,28 +20,28 @@ if($ret_val==1){
             <div class="panel-body">
              
              <div class="form-group">
-               <label class="control-label col-sm-2">Name:<span style='color:red'>*</span></label>
+               <label class="control-label col-sm-2">ProductID:<span style='color:red'>*</span></label>
+               <div class="col-sm-5">
+                  <input class="form-control" type="number" name="id" required>
+               </div>
+            </div>
+             <div class="form-group">
+               <label class="control-label col-sm-2">ProductName:<span style='color:red'>*</span></label>
                <div class="col-sm-5">
                   <input class="form-control" type="text" name="name" required>
                </div>
             </div>
-             <div class="form-group">
-               <label class="control-label col-sm-2">Email:<span style='color:red'>*</span></label>
-               <div class="col-sm-5">
-                  <input class="form-control" type="email" name="email" required>
-               </div>
-            </div>
             
              <div class="form-group">
-               <label class="control-label col-sm-2">Mobile Number:<span style='color:red'>*</span></label>
+               <label class="control-label col-sm-2">ProductPrice:<span style='color:red'>*</span></label>
                <div class="col-sm-5">
-                  <input class="form-control" type="number" name="mobileno" required>
+                  <input class="form-control" type="number" name="price" required>
                </div>
             </div>
             <div class="form-group">
-               <label class="control-label col-sm-2">Address:<span style='color:red'>*</span></label>
+               <label class="control-label col-sm-2">ProductAmount:<span style='color:red'>*</span></label>
                <div class="col-sm-5">
-                  <textarea rows="5" cols="5" class="form-control" name="address" required></textarea>
+                  <textarea rows="5" cols="5" class="number" name="amount" required></textarea>
                </div>
             </div>
              <div class="form-group">
