@@ -49,6 +49,8 @@
 		}
 		pg_free_result($result);
 		echo '</table></body></html>';
+		
 	?> 
+		<a href="index.php">Logout</a>
 </body>
 <html>
