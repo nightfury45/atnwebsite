@@ -70,7 +70,7 @@
 		Product ID: <input type="number" name="id" value="" /><br />		
 		<input type="submit" name="delete" value="Delete" />
 	</form>
-		<?php 
+	<?php 
 		if(isset($_GET['delete'])){
 			$sql = "delete from stock where productid=$_GET[id]";
 			$result = pg_query($pg_heroku, $sql);
@@ -78,6 +78,21 @@
 			echo "Row deleted";
 			}
 		}  
+	?>
+	<form name="input" action="" method="get">
+		Product ID: <input type="number" name="id" value="" /><br />
+		Product Name:  <input type="text" name="name" value="" /><br />
+		Product Price:  <input type="number" name="price" value="" /><br />
+		Product Amount: <input type="number" name="amount" value="" /><br />	
+		<input type="submit" name="update" value="Update" />
+	</form>
+	<?php 
+		if(isset($_GET['update'])){
+		$sql = "update stock set productname ='$_GET[name]' , productprice ='$_GET[price]', productamount = '$_GET[amount]' where id = $_GET[id]";
+		$result = pg_query($pg_heroku, $sql);
+		if($result){
+		  echo "Updated successfully.";
+		}
 	?>
 	<a href="logout.php">Logout</a>
 </div>  	
