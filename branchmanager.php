@@ -56,6 +56,13 @@
 	Product Amount: <input type="number" name="amount" value="" /><br />
 	<input type="submit" name="submit" value="Submit" />
 	</form>
+	<?php 
+		$sql = "insert into stock(productname, productprice, productamount)  values('$_GET[name]','$_GET[price]', '$_GET[amount]')";
+		$result = pg_query($pg_heroku, $sql);
+		if($result){
+		ehco "Record saved";
+		}  
+	?>
 	<a href="logout.php">Logout</a>
 </div>  	
 </body>
