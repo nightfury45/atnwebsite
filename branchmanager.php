@@ -61,7 +61,7 @@
 	</form>
 	<?php 
 		if(isset($_GET['insert'])){
-			$sql = "insert into stock(productid, productname, productprice, productamount) values('$_GET[id]', '$_GET[name]', '$_GET[price]', '$_GET[amount]')";
+			$sql = "insert into stock(productid, productname, productprice, productamount) values($_GET[id], '$_GET[name]', $_GET[price], $_GET[amount])";
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			echo "Record saved";
@@ -75,13 +75,13 @@
 			}
 		} 
 		if(isset($_GET['update'])){
-			$sql = "update stock set productname='$_GET[name]' , productprice='$_GET[price]', productamount='$_GET[amount]' where productid=$_GET[id]";
+			$sql = "update stock set productname='$_GET[name]', productprice=$_GET[price], productamount=$_GET[amount] where productid=$_GET[id]";
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			  echo "Updated successfully.";
-			}	
+			}
+		}			
 	?>
-	<a href="logout.php">Logout</a>
-</div>  	
+	<a href="logout.php">Logout</a>	
 </body>
 <html>
