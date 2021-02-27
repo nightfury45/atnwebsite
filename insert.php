@@ -1,6 +1,6 @@
 <?php 
 if(isset($_POST['submit']) and !empty($_POST['submit'])){
-$ret_val = $obj->createUser();
+$ret_val = $obj->createItem();
 if($ret_val==1){
     echo '<script type="text/javascript">'; 
     echo 'alert("Record Saved Successfully");'; 
