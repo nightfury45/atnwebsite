@@ -10,8 +10,8 @@ if($ret_val==1){
 }
 ?>
 <div class="container-fluid bg-3 text-center">    
-  <h3>CRUD Example Using PHP OOPS And PostgreSQL</h3>
-  <a href="index.php" class="btn btn-primary pull-right" style='margin-top:-30px'><span class="glyphicon glyphicon-eye-open"></span> View Records</a>
+  <h3>CRUD for branch manager</h3>
+  <a href="branchmanager.php" class="btn btn-primary pull-right" style='margin-top:-30px'><span class="glyphicon glyphicon-eye-open"></span> View Records</a>
   <br>
   
   <div class="panel panel-primary">
