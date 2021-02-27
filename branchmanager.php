@@ -54,10 +54,10 @@
 	Product Name:  <input type="text" name="name" value="" /><br />
 	Product Price:  <input type="number" name="price" value="" /><br />
 	Product Amount: <input type="number" name="amount" value="" /><br />
-	<input type="submit" name="submit" value="Submit" />
+	<input type="submit" name="insert" value="Insert" />
 	</form>
 	<?php 
-		if(isset($_GET['submit'])){
+		if(isset($_GET['insert'])){
 			$sql = "insert into stock(productname, productprice, productamount) values('$_GET[name]','$_GET[price]', '$_GET[amount]')";
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
