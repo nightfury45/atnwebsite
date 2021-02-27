@@ -51,6 +51,7 @@
 		echo '</table></body></html>';
 	?>
 	<form name="input" action="" method="get">
+		Product ID: <input type="number" name="id" value="" /><br />
 		Product Name:  <input type="text" name="name" value="" /><br />
 		Product Price:  <input type="number" name="price" value="" /><br />
 		Product Amount: <input type="number" name="amount" value="" /><br />
@@ -58,7 +59,7 @@
 	</form>
 	<?php 
 		if(isset($_GET['insert'])){
-			$sql = "insert into stock(productname, productprice, productamount) values('$_GET[name]','$_GET[price]', '$_GET[amount]')";
+			$sql = "insert into stock(productid, productname, productprice, productamount) values('$_GET[id]', '$_GET[name]', '$_GET[price]', '$_GET[amount]')";
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			echo "Record saved";
