@@ -56,8 +56,8 @@
 		Product Price:  <input type="number" name="price" value="" /><br />
 		Product Amount: <input type="number" name="amount" value="" /><br />
 		<input type="submit" name="insert" value="Insert" />
-		<input type="submit" name="update" value="Update" />
 		<input type="submit" name="delete" value="Delete" />
+		<input type="submit" name="update" value="Update" />
 	</form>
 	<?php 
 		if(isset($_GET['insert'])){
@@ -67,15 +67,19 @@
 			echo "Record saved";
 			}
 		}  
-	?>
-	<?php 
 		if(isset($_GET['delete'])){
 			$sql = "delete from stock where productid=$_GET[id]";
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			echo "Row deleted";
 			}
-		}  
+		} 
+		if(isset($_GET['update'])){
+			$sql = "update stock set productname='$_GET[name]' , productprice='$_GET[price]', productamount='$_GET[amount]' where productid=$_GET[id]";
+			$result = pg_query($pg_heroku, $sql);
+			if($result){
+			  echo "Updated successfully.";
+			}	
 	?>
 	<a href="logout.php">Logout</a>
 </div>  	
