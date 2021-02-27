@@ -51,10 +51,10 @@
 		echo '</table></body></html>';
 	?>
 	<form name="input" action="" method="get">
-	Product Name:  <input type="text" name="name" value="" /><br />
-	Product Price:  <input type="number" name="price" value="" /><br />
-	Product Amount: <input type="number" name="amount" value="" /><br />
-	<input type="submit" name="insert" value="Insert" />
+		Product Name:  <input type="text" name="name" value="" /><br />
+		Product Price:  <input type="number" name="price" value="" /><br />
+		Product Amount: <input type="number" name="amount" value="" /><br />
+		<input type="submit" name="insert" value="Insert" />
 	</form>
 	<?php 
 		if(isset($_GET['insert'])){
@@ -62,6 +62,19 @@
 			$result = pg_query($pg_heroku, $sql);
 			if($result){
 			echo "Record saved";
+			}
+		}  
+	?>
+	<form name="input" action="" method="get">
+		Product ID: <input type="number" name="id" value="" /><br />		
+		<input type="submit" name="delete" value="Delete" />
+	</form>
+		<?php 
+		if(isset($_GET['delete'])){
+			$sql = "delete from stock where productid=$_GET[id]";
+			$result = pg_query($pg_heroku, $sql);
+			if($result){
+			echo "Row deleted";
 			}
 		}  
 	?>
